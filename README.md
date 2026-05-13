@@ -1,0 +1,126 @@
+<div align="center">
+
+<div>
+    <img width="100" height="100" alt="Everywhere" src="https://storage.argsment.com/Everywhere-AppIcon-macOS.png" />
+</div>
+
+# Everywhere
+
+**One app. Three networking engines. Your rules.**
+
+Everywhere is a powerful proxy and tunneling app for macOS that puts you in
+charge of how your device talks to the internet. Bring your own
+configuration, pick the engine you trust, and flip a switch. That's it.
+
+</div>
+
+---
+
+## Why Everywhere?
+
+Most networking apps lock you into a single backend and a single way of
+doing things. Everywhere doesn't. It bundles three of the most popular
+open-source proxy cores in one place, gives them a clean home, and lets
+you move between them whenever you like.
+
+## Features
+
+### Cores
+
+- **Xray-core** `v26.3.27` — battle-tested VLESS / VMess / Trojan /
+  Shadowsocks with the full XTLS / Reality / XHTTP transport matrix
+- **sing-box** `v1.13.11` — modern modular core with a strong rule
+  engine, built with the full `with_*` tag matrix (QUIC, gVisor, uTLS,
+  WireGuard, Tailscale, ACME, gRPC, clash API, v2ray stats…)
+- **mihomo** `v1.19.24` — Clash-flavored ergonomics with rich proxy
+  groups, fake-IP, and rule providers
+- **Live core switching** — change engines from the Home tab whenever
+  the tunnel is stopped; configurations don't get tangled across cores
+- **Native TUN inbound per core** — each engine consumes the iOS `utun`
+  file descriptor directly. No userspace `tun→socks` bridge, no extra
+  hop, no extra latency
+
+### App
+
+- **Built-in code editor** — Tree-sitter syntax highlighting for JSON
+  and YAML, line numbers, 80-column page guide, no autocorrect
+  "helping" you turn `"server"` into `"sever"`
+- **Bring configs from anywhere** — type one in, import a file, or paste
+  a URL and let the app fetch it
+- **Per-core configuration lists** — your Xray setups don't get mixed
+  up with your mihomo ones
+- **yacd dashboard** — bundled Clash dashboard for live traffic, proxy
+  groups, and rule inspection (works with sing-box and mihomo)
+- **Resource management** — drop `geoip.dat`, `geosite.dat`, `ASN.mmdb`,
+  cache files, or PEMs into per-core resource folders; each engine sees
+  them in the right place automatically
+
+### Architecture
+
+- **Native Network Extension** — `NEPacketTunnelProvider` owns the
+  `utun` device; the extension and the app share configurations through
+  an App Group container
+- **gomobile-built framework** — Xray, sing-box, and mihomo compile into
+  a single `EverywhereCore.xcframework` via `gomobile bind`, stripped
+  with `-ldflags="-s -w"` so archive validation never demands a dSYM
+- **Tree-sitter editor** — [Runestone](https://github.com/simonbs/Runestone)
+  with the JSON and YAML grammars compiled in
+- **Bundled web dashboard** — yacd is served from the app bundle via a
+  custom `yacd://` URL scheme.
+
+## Getting Started
+
+### Build from Source
+
+```bash
+git clone https://github.com/NodePassProject/Everywhere-macOS.git
+cd Everywhere
+./build.sh
+open Everywhere.xcodeproj
+```
+
+`build.sh` fetches the upstream sources at their pinned tags, builds
+the Go core into a framework with the right `with_*` tag matrix, and
+wires it into the Xcode project. Then plug in your signing identity and
+run on a device or the simulator.
+
+To run an `xcodebuild` simulator smoke test as the final step:
+
+```bash
+./build.sh --build-app
+```
+
+## Patches & Upstream Tracking
+
+Every change made on top of upstream sources, every build-tag decision,
+and every wiring quirk per core is documented in
+[`PATCHES.md`](PATCHES.md). When bumping an upstream tag, walk that
+file. Right now all three upstreams build unmodified at the pinned
+tags — the only patches are `go.mod` overrides and `gomobile`
+mechanics.
+
+## Acknowledgements
+
+Everywhere stands on the shoulders of the projects that do the real
+networking work:
+
+- [Xray-core](https://github.com/XTLS/Xray-core)
+- [sing-box](https://github.com/SagerNet/sing-box)
+- [mihomo](https://github.com/MetaCubeX/mihomo)
+- [yacd](https://github.com/MetaCubeX/Yacd-meta)
+- [Runestone](https://github.com/simonbs/Runestone)
+
+Huge thanks to everyone who maintains them.
+
+## License
+
+Everywhere is licensed under the [GNU General Public License v3.0](LICENSE).
+
+Copyright © 2026 Argsment Limited.
+
+If you ship a modification, ship the source too. That's the deal.
+
+---
+
+If Everywhere makes your phone's network behave the way you want, give
+the repo a star — it helps others find it.

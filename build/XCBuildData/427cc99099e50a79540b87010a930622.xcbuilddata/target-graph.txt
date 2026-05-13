@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'Everywhere' in project 'Everywhere'
+➜ Explicit dependency on target 'EverywhereNE' in project 'Everywhere'
+Target 'EverywhereNE' in project 'Everywhere' (no dependencies)

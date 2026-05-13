@@ -1,0 +1,259 @@
+{
+  "" : {
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Everywhere-primary.dia",
+    "emit-module-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Everywhere-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Everywhere-primary-emit-module.dia",
+    "pch" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Everywhere-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Everywhere-primary.swiftdeps"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Configurations/ConfigurationsView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationsView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Configurations/NameInputAlert.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/NameInputAlert~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Configurations/URLInputAlert.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/URLInputAlert~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/ContentView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Controller/ControllerView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ControllerView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/AppGroup.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppGroup~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/AppState.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AppState~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/Configuration.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/Configuration~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/ConfigurationStore.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigurationStore~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/CoreType.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/CoreType~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Core/PersistenceController.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/PersistenceController~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Editor/ConfigEditorScreen.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorScreen~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Editor/ConfigEditorView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigEditorView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/EverywhereApp.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/EverywhereApp~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Home/HomeView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/HomeView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Settings/AcknowledgementView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/AcknowledgementView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Settings/DNSSettingsView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/DNSSettingsView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Settings/ResourcesStore.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesStore~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Settings/ResourcesView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ResourcesView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Settings/SettingsView.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/TunnelManager.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/TunnelManager~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Utilities/ConfigNormalizer.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ConfigNormalizer~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/Everywhere/Utilities/ExampleConfigs.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/ExampleConfigs~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/DerivedSources/GeneratedStringSymbols_Localizable.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/Everywhere.build/Objects-normal/arm64/GeneratedStringSymbols_Localizable~partial.swiftmodule"
+  }
+}

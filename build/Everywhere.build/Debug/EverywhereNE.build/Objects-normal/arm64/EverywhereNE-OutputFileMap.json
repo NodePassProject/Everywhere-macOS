@@ -1,0 +1,29 @@
+{
+  "" : {
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/EverywhereNE-primary.dia",
+    "emit-module-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/EverywhereNE-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/EverywhereNE-primary-emit-module.dia",
+    "pch" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/EverywhereNE-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/EverywhereNE-primary.swiftdeps"
+  },
+  "/Volumes/Work/Everywhere-macOS/EverywhereNE/PacketTunnelProvider.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/PacketTunnelProvider~partial.swiftmodule"
+  },
+  "/Volumes/Work/Everywhere-macOS/EverywhereNE/TunnelFD.swift" : {
+    "const-values" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.swiftconstvalues",
+    "dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.d",
+    "diagnostics" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.dia",
+    "index-unit-output-path" : "/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.o",
+    "llvm-bc" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.bc",
+    "object" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.o",
+    "swift-dependencies" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD.swiftdeps",
+    "swiftmodule" : "/Volumes/Work/Everywhere-macOS/build/Everywhere.build/Debug/EverywhereNE.build/Objects-normal/arm64/TunnelFD~partial.swiftmodule"
+  }
+}
