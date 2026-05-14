@@ -1,5 +1,5 @@
 {
-  "originHash" : "fe5fe9bfcea38dcc89e19197317dec5223617957210b2b5ad00a982baeacc2da",
+  "originHash" : "c085e6defd4d6e77a8876c856d4fb812a8f9738357471b73bfb4b48759cbb570",
   "pins" : [
     {
       "identity" : "codeeditlanguages",
@@ -35,6 +35,15 @@
       "state" : {
         "revision" : "d7ac3f11f22ec2e820187acce8f3a3fb7aa8ddec",
         "version" : "0.12.1"
+      }
+    },
+    {
+      "identity" : "everywherecore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/NodePassProject/EverywhereCore.git",
+      "state" : {
+        "revision" : "284f00ec3bdccb7642953ae58b3d5add71ae58ce",
+        "version" : "2026.5.14"
       }
     },
     {

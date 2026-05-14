@@ -52,8 +52,6 @@ struct ConfigEditorScreen: View {
 // looked up by UUID. Used as a `WindowGroup` payload so each
 // configuration can be edited in its own window.
 struct ConfigEditorWindow: View {
-    static let windowID = "config-editor"
-
     @ObservedObject private var store = ConfigurationStore.shared
     let configurationID: UUID?
 
@@ -62,7 +60,10 @@ struct ConfigEditorWindow: View {
             if let config = resolvedConfiguration {
                 ConfigEditorScreen(configuration: config)
             } else {
-                missingPlaceholder
+                ContentUnavailableView(
+                    "Configuration not found",
+                    systemImage: "doc.badge.ellipsis"
+                )
             }
         }
         .frame(minWidth: 600, minHeight: 480)
@@ -71,12 +72,5 @@ struct ConfigEditorWindow: View {
     private var resolvedConfiguration: Configuration? {
         guard let configurationID else { return nil }
         return store.configurations.first { $0.id == configurationID }
-    }
-
-    private var missingPlaceholder: some View {
-        ContentUnavailableView(
-            "Configuration not found",
-            systemImage: "doc.badge.ellipsis"
-        )
     }
 }

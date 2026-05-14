@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F8E9C92A16E71EFDE15E328 /* EverywhereCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53D36F958601B041F2D122D6 /* EverywhereCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91B8D284FFA30CF25FB037E5 /* yacd-gh-pages in Resources */ = {isa = PBXBuildFile; fileRef = 82B9CBC5E016145F3F379633 /* yacd-gh-pages */; };
+		B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = 34BEB8398CA45C4A20EC5AEC /* EverywhereCore */; };
 		CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */; };
 		CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF1F7BE2FB3163E00D91BE7 /* NetworkExtension.framework */; };
 		CBF1F7C72FB3163E00D91BE7 /* EverywhereNE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
-		F763859508C5822480888ABF /* EverywhereCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D36F958601B041F2D122D6 /* EverywhereCore.xcframework */; };
-		F9B3E86B491DC0753B584B6D /* EverywhereCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53D36F958601B041F2D122D6 /* EverywhereCore.xcframework */; };
+		FB4F74E34BCB09FD5F92C36D /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,17 +28,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0D50469820E4D4E9A2CE88B1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2F8E9C92A16E71EFDE15E328 /* EverywhereCore.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CBF1F7CC2FB3163E00D91BE7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,7 +42,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		53D36F958601B041F2D122D6 /* EverywhereCore.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = EverywhereCore.xcframework; path = Frameworks/EverywhereCore.xcframework; sourceTree = SOURCE_ROOT; };
 		82B9CBC5E016145F3F379633 /* yacd-gh-pages */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "yacd-gh-pages"; path = "ThirdParty/yacd-gh-pages"; sourceTree = SOURCE_ROOT; };
 		BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CBF1F7AA2FB3161D00D91BE7 /* Everywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Everywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,9 +90,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9B3E86B491DC0753B584B6D /* EverywhereCore.xcframework in Frameworks */,
 				E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */,
 				CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */,
+				FB4F74E34BCB09FD5F92C36D /* EverywhereCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +101,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */,
-				F763859508C5822480888ABF /* EverywhereCore.xcframework in Frameworks */,
 				D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */,
+				B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				CBF1F7BE2FB3163E00D91BE7 /* NetworkExtension.framework */,
-				53D36F958601B041F2D122D6 /* EverywhereCore.xcframework */,
 				BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */,
 			);
 			name = Frameworks;
@@ -163,7 +149,6 @@
 				CBF1F7A72FB3161C00D91BE7 /* Frameworks */,
 				CBF1F7A82FB3161C00D91BE7 /* Resources */,
 				CBF1F7CC2FB3163E00D91BE7 /* Embed Foundation Extensions */,
-				0D50469820E4D4E9A2CE88B1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +161,7 @@
 			name = Everywhere;
 			packageProductDependencies = (
 				CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */,
+				B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */,
 			);
 			productName = Everywhere;
 			productReference = CBF1F7AA2FB3161D00D91BE7 /* Everywhere.app */;
@@ -197,6 +183,9 @@
 				CBF1F7C02FB3163E00D91BE7 /* EverywhereNE */,
 			);
 			name = EverywhereNE;
+			packageProductDependencies = (
+				34BEB8398CA45C4A20EC5AEC /* EverywhereCore */,
+			);
 			productName = EverywhereNE;
 			productReference = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -230,6 +219,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				CB1BEA682FB3404400CD736B /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */,
+				9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CBF1F7AB2FB3161D00D91BE7 /* Products */;
@@ -340,7 +330,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -398,7 +388,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -414,7 +404,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -430,10 +420,6 @@
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Everywhere/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Everywhere;
@@ -466,7 +452,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -482,10 +468,6 @@
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Everywhere/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Everywhere;
@@ -515,7 +497,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -529,10 +511,6 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EverywhereNE/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EverywhereNE;
@@ -560,7 +538,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -574,10 +552,6 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EverywhereNE/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = EverywhereNE;
@@ -633,6 +607,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NodePassProject/EverywhereCore";
+			requirement = {
+				kind = exactVersion;
+				version = 2026.05.14;
+			};
+		};
 		CB1BEA682FB3404400CD736B /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CodeEditApp/CodeEditSourceEditor.git";
@@ -644,6 +626,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		34BEB8398CA45C4A20EC5AEC /* EverywhereCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */;
+			productName = EverywhereCore;
+		};
+		B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */;
+			productName = EverywhereCore;
+		};
 		CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CB1BEA682FB3404400CD736B /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */;

@@ -18,6 +18,10 @@ struct ContentView: View {
     @State private var isDownloading = false
     @State private var importErrorMessage: String?
     @State private var pendingDelete: Configuration?
+    
+    private var showController: Bool {
+        tunnel.coreRunning && store.selectedCore != .xray
+    }
 
     var body: some View {
         rootView
@@ -85,13 +89,6 @@ struct ContentView: View {
         } else {
             corePager
         }
-    }
-
-    // yacd talks to the clash REST API, which Xray-core does not
-    // expose, so we only show the bundled dashboard for sing-box and
-    // mihomo.
-    private var showController: Bool {
-        tunnel.coreRunning && store.selectedCore != .xray
     }
 
     // MARK: - Toolbar
@@ -186,6 +183,7 @@ struct ContentView: View {
                 } label: {
                     Label("New", systemImage: "plus")
                 }
+                .disabled(tunnel.coreRunning)
             }
         }
     }
@@ -502,7 +500,7 @@ private struct ConfigCard: View {
                 }
                 Spacer(minLength: 0)
                 Button {
-                    openWindow(id: ConfigEditorWindow.windowID, value: config.id)
+                    openWindow(id: WindowID.configEditor.rawValue, value: config.id)
                 } label: {
                     Image(systemName: "square.and.pencil")
                         .font(.title3)
