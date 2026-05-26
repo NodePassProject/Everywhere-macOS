@@ -22,7 +22,14 @@
       }
     },
     "Add Configuration" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加配置"
+          }
+        }
+      }
     },
     "Address" : {
       "localizations" : {
@@ -228,7 +235,14 @@
       }
     },
     "Downloading…" : {
-
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载中…"
+          }
+        }
+      }
     },
     "Edit" : {
       "localizations" : {
@@ -279,6 +293,9 @@
           }
         }
       }
+    },
+    "Everywhere" : {
+      "shouldTranslate" : false
     },
     "Folder is not empty." : {
       "localizations" : {
@@ -448,6 +465,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "好"
+          }
+        }
+      }
+    },
+    "Open Everywhere" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开 Everywhere"
+          }
+        }
+      }
+    },
+    "Quit Everywhere" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出 Everywhere"
           }
         }
       }

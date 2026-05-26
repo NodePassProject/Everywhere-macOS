@@ -8,14 +8,17 @@
 import SwiftUI
 
 enum WindowID: String {
+    case main
     case configEditor = "config-editor"
     case acknowledgements = "acknowledgements"
 }
 
 @main
 struct EverywhereApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
     var body: some Scene {
-        WindowGroup {
+        Window("Everywhere", id: WindowID.main.rawValue) {
             ContentView()
                 .frame(minWidth: 800, minHeight: 600)
         }
