@@ -1,17 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@ configurations" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 配置"
-          }
-        }
-      }
-    },
     "Acknowledgements" : {
       "localizations" : {
         "zh-Hans" : {
@@ -32,12 +21,25 @@
         }
       }
     },
+    "Add Configuration" : {
+
+    },
     "Address" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "地址"
+          }
+        }
+      }
+    },
+    "Always On" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "始终开启"
           }
         }
       }
@@ -58,17 +60,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未找到配置"
-          }
-        }
-      }
-    },
-    "Configurations" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "配置"
           }
         }
       }
@@ -109,17 +100,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "连接失败"
-          }
-        }
-      }
-    },
-    "Controller" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "控制器"
           }
         }
       }
@@ -247,6 +227,9 @@
         }
       }
     },
+    "Downloading…" : {
+
+    },
     "Edit" : {
       "localizations" : {
         "zh-Hans" : {
@@ -277,6 +260,16 @@
         }
       }
     },
+    "Enter a name for the new folder." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入新文件夹的名称。"
+          }
+        }
+      }
+    },
     "Enter a URL to download the configuration from." : {
       "localizations" : {
         "zh-Hans" : {
@@ -287,23 +280,12 @@
         }
       }
     },
-    "Files" : {
+    "Folder is not empty." : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "文件"
-          }
-        }
-      }
-    },
-    "Home" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "主页"
+            "value" : "文件夹不为空。"
           }
         }
       }
@@ -344,6 +326,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "导入的配置"
+          }
+        }
+      }
+    },
+    "Include All Networks" : {
+      "shouldTranslate" : false
+    },
+    "Include APNs" : {
+      "shouldTranslate" : false
+    },
+    "Include Cellular Services" : {
+      "shouldTranslate" : false
+    },
+    "Include Local Networks" : {
+      "shouldTranslate" : false
+    },
+    "Invalid name." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效名称。"
           }
         }
       }
@@ -398,22 +402,32 @@
         }
       }
     },
+    "New Folder" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新文件夹"
+          }
+        }
+      }
+    },
+    "New items are added to %@." : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新项目将被添加至 %@。"
+          }
+        }
+      }
+    },
     "No Configurations" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "无配置"
-          }
-        }
-      }
-    },
-    "No Files" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无文件"
           }
         }
       }
@@ -518,24 +532,22 @@
         }
       }
     },
-    "Settings" : {
-      "extractionState" : "stale",
+    "Show in Finder" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "设置"
+            "value" : "在访达中显示"
           }
         }
       }
     },
-    "Stop the tunnel before switching cores." : {
-      "extractionState" : "stale",
+    "Size" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "停止隧道以切换核心。"
+            "value" : "大小"
           }
         }
       }
@@ -551,7 +563,6 @@
       }
     },
     "Tunnel" : {
-      "extractionState" : "stale",
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {

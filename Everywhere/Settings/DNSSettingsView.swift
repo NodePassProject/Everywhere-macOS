@@ -2,7 +2,7 @@
 //  DNSSettingsView.swift
 //  Everywhere
 //
-//  Created by Argsment Limited on 5/2/26.
+//  Created by NodePassProject on 5/2/26.
 //
 
 import Network
@@ -54,17 +54,16 @@ struct DNSSettingsView: View {
             }
             
             Section {
-                Button(isEditing ? String(localized: "Done") : String(localized: "Edit")) {
-                    if isEditing {
-                        save()
+                HStack {
+                    Button(isEditing ? String(localized: "Done") : String(localized: "Edit")) {
+                        if isEditing {
+                            save()
+                        }
+                        isEditing.toggle()
                     }
-                    isEditing.toggle()
-                }
-            }
-
-            Section {
-                Button("Reset to default") {
-                    reset()
+                    Button("Reset to default") {
+                        reset()
+                    }
                 }
             }
         }
@@ -90,7 +89,7 @@ struct DNSSettingsView: View {
     }
 
     private func reset() {
-        appState.dnsServers = AppState.defaultDNSServers
+        appState.dnsServers = EVCore.defaultDNSServers
         loadInitial()
     }
 

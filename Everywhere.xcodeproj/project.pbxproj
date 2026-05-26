@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91B8D284FFA30CF25FB037E5 /* yacd-gh-pages in Resources */ = {isa = PBXBuildFile; fileRef = 82B9CBC5E016145F3F379633 /* yacd-gh-pages */; };
 		B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = 34BEB8398CA45C4A20EC5AEC /* EverywhereCore */; };
 		CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */; };
 		CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF1F7BE2FB3163E00D91BE7 /* NetworkExtension.framework */; };
 		CBF1F7C72FB3163E00D91BE7 /* EverywhereNE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
+		F9357A5FBB147A31AFCA9C4C /* zashboard in Resources */ = {isa = PBXBuildFile; fileRef = B1092611A99F67CD51BC0432 /* zashboard */; };
 		FB4F74E34BCB09FD5F92C36D /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		82B9CBC5E016145F3F379633 /* yacd-gh-pages */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = "yacd-gh-pages"; path = "ThirdParty/yacd-gh-pages"; sourceTree = SOURCE_ROOT; };
+		B1092611A99F67CD51BC0432 /* zashboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; name = zashboard; path = ThirdParty/zashboard; sourceTree = SOURCE_ROOT; };
 		BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CBF1F7AA2FB3161D00D91BE7 /* Everywhere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Everywhere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EverywhereNE.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +67,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		3BAA08BE3B06CD87400B3937 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		CBF1F7AC2FB3161D00D91BE7 /* Everywhere */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -112,11 +117,12 @@
 		CBF1F7A12FB3161C00D91BE7 = {
 			isa = PBXGroup;
 			children = (
+				3BAA08BE3B06CD87400B3937 /* Shared */,
 				CBF1F7AC2FB3161D00D91BE7 /* Everywhere */,
 				CBF1F7C02FB3163E00D91BE7 /* EverywhereNE */,
 				CBF1F7BD2FB3163E00D91BE7 /* Frameworks */,
 				CBF1F7AB2FB3161D00D91BE7 /* Products */,
-				82B9CBC5E016145F3F379633 /* yacd-gh-pages */,
+				B1092611A99F67CD51BC0432 /* zashboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +162,7 @@
 				CBF1F7C62FB3163E00D91BE7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				3BAA08BE3B06CD87400B3937 /* Shared */,
 				CBF1F7AC2FB3161D00D91BE7 /* Everywhere */,
 			);
 			name = Everywhere;
@@ -180,6 +187,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				3BAA08BE3B06CD87400B3937 /* Shared */,
 				CBF1F7C02FB3163E00D91BE7 /* EverywhereNE */,
 			);
 			name = EverywhereNE;
@@ -237,7 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B8D284FFA30CF25FB037E5 /* yacd-gh-pages in Resources */,
+				F9357A5FBB147A31AFCA9C4C /* zashboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +412,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -452,7 +460,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -497,7 +505,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -538,7 +546,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -612,7 +620,7 @@
 			repositoryURL = "https://github.com/NodePassProject/EverywhereCore";
 			requirement = {
 				kind = exactVersion;
-				version = 2026.05.14;
+				version = 2026.05.18;
 			};
 		};
 		CB1BEA682FB3404400CD736B /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */ = {

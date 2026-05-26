@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  Everywhere
 //
-//  Created by Argsment Limited on 5/2/26.
+//  Created by NodePassProject on 5/2/26.
 //
 
 import SwiftUI
@@ -10,6 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         TabView {
+            TunnelSettingsView()
+                .tabItem { Label("Tunnel", systemImage: "shield") }
             DNSSettingsView()
                 .tabItem { Label("DNS", systemImage: "network") }
             ResourcesView()

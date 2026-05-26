@@ -2,7 +2,7 @@
 //  AcknowledgementView.swift
 //  Everywhere
 //
-//  Created by Argsment Limited on 5/2/26.
+//  Created by NodePassProject on 5/2/26.
 //
 
 import SwiftUI
@@ -98,10 +98,16 @@ struct Acknowledgement: Identifiable {
             """
         ),
         Acknowledgement(
-            name: "Yacd-meta",
-            url: URL(string: "https://github.com/MetaCubeX/Yacd-meta")!,
+            name: "zashboard",
+            url: URL(string: "https://github.com/Zephyruso/zashboard")!,
             license: "MIT",
-            licenseText: Licenses.mit(copyright: "Copyright (c) 2019 Haishan Hu")
+            licenseText: Licenses.mit(copyright: "Copyright (c) 2024 Zephyruso")
+        ),
+        Acknowledgement(
+            name: "CodeEditSourceEditor",
+            url: URL(string: "https://github.com/CodeEditApp/CodeEditSourceEditor")!,
+            license: "MIT",
+            licenseText: Licenses.mit(copyright: "Copyright (c) 2022 CodeEdit")
         ),
     ]
 }
