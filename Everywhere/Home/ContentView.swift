@@ -16,20 +16,21 @@ struct ContentView: View {
     @State var activationBlocked = false
     @State var fileImporting = false
     @State var isDownloading = false
+    @State var updatingIDs: Set<UUID> = []
     @State var importErrorMessage: String?
     @State var pendingDelete: Configuration?
     @State var importCore: CoreType?
-
+    @State var namePrompt: NamePrompt?
+    @State var nameInput = ""
+    @State var downloadCore: CoreType?
+    @State var urlInput = ""
+    
     private var showDashboard: Bool {
         tunnel.coreRunning && store.selectedCore != .xray && appState.useZashboardEnabled
     }
-
+    
     var body: some View {
-        rootView
-            .toolbar {
-                tunnelStatusItem
-                tunnelToggleItem
-            }
+        rootViewWithToolbar
             .fileImporter(
                 isPresented: $fileImporting,
                 allowedContentTypes: [.json, .yaml, .text, .data, .item],
@@ -60,6 +61,30 @@ struct ContentView: View {
             } message: { msg in
                 Text(msg)
             }
+            .alert(
+                namePrompt?.title ?? "",
+                isPresented: namePromptBinding,
+                presenting: namePrompt
+            ) { prompt in
+                TextField("Name", text: $nameInput)
+                Button("Save") { submitName(for: prompt) }
+                Button("Cancel", role: .cancel) {}
+            } message: { prompt in
+                if let message = prompt.message {
+                    Text(message)
+                }
+            }
+            .alert(
+                downloadCore.map { String(localized: "Subscribe to \($0.displayName) configuration") } ?? "",
+                isPresented: downloadPromptBinding,
+                presenting: downloadCore
+            ) { core in
+                TextField(String("https://"), text: $urlInput)
+                Button("Subscribe") { submitDownload(for: core) }
+                Button("Cancel", role: .cancel) {}
+            } message: { _ in
+                Text("Enter a subscription URL.")
+            }
             .confirmationDialog(
                 "Delete configuration?",
                 isPresented: deleteDialogBinding,
@@ -72,7 +97,16 @@ struct ContentView: View {
                 Button("Cancel", role: .cancel) { pendingDelete = nil }
             }
     }
-
+    
+    @ViewBuilder
+    private var rootViewWithToolbar: some View {
+        rootView
+            .toolbar {
+                tunnelStatusItem
+                tunnelToggleItem
+            }
+    }
+    
     @ViewBuilder
     private var rootView: some View {
         if #available(macOS 15.0, *) {
@@ -81,7 +115,7 @@ struct ContentView: View {
             mainContent
         }
     }
-
+    
     @ViewBuilder
     private var mainContent: some View {
         if showDashboard {

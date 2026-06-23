@@ -95,6 +95,7 @@ extension ContentView {
                         ConfigCard(
                             config: config,
                             isActive: store.activeIDByCoreType[core] == config.id,
+                            isUpdating: updatingIDs.contains(config.id),
                             action: { activate(config) },
                             onUpdate: { updateSubscription(config) },
                             onRename: { promptRename(config) },

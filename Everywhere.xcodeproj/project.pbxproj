@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = 34BEB8398CA45C4A20EC5AEC /* EverywhereCore */; };
 		CB106E9A2FEA8B35001F6D23 /* EverywhereNE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CB10762B2FEAA59F001F6D23 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */; };
 		CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF1F7BE2FB3163E00D91BE7 /* NetworkExtension.framework */; };
-		D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
-		E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		F9357A5FBB147A31AFCA9C4C /* zashboard in Resources */ = {isa = PBXBuildFile; fileRef = B1092611A99F67CD51BC0432 /* zashboard */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +93,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */,
 				CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,8 +102,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */,
-				D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */,
 				B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */,
+				CB10762B2FEAA59F001F6D23 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +201,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2650;
 				TargetAttributes = {
 					CBF1F7A92FB3161C00D91BE7 = {
 						CreatedOnToolsVersion = 26.0;
@@ -315,6 +313,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -340,6 +339,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -379,6 +379,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -397,6 +398,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -409,7 +411,8 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -457,7 +460,8 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -502,7 +506,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -529,6 +534,7 @@
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere.EverywhereNE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -543,7 +549,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -570,6 +577,7 @@
 				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere.EverywhereNE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;

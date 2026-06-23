@@ -50,9 +50,7 @@ extension ContentView {
         @unknown default: return String(localized: "Unknown")
         }
     }
-
-    // Only consulted for steady states; transitioning swaps the dot
-    // out for a `ProgressView` in `statusIndicator`.
+    
     var statusColor: Color {
         if !tunnel.isReady { return .secondary }
         switch tunnel.status {
@@ -93,10 +91,7 @@ extension ContentView {
         if tunnel.status.isTransitioning { return true }
         return store.active == nil
     }
-
-    // Tunnel is "on" — i.e. running, becoming so, or fighting to stay
-    // up. Drives the toggle's action label and icon; status text is
-    // handled separately by `statusText`.
+    
     var isTunnelOnOrConnecting: Bool {
         switch tunnel.status {
         case .connected, .connecting, .reasserting: return true

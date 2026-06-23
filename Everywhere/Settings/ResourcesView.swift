@@ -9,11 +9,6 @@ import AppKit
 import SwiftUI
 import UniformTypeIdentifiers
 
-// macOS sibling of iOS's ResourcesView + DirectoryBrowserView. iOS drills
-// into each core's directory with NavigationLinks, but the Settings scene
-// here can't push, so the recursive structure is shown inline as a
-// hierarchical Table — folders expand with disclosure triangles, mirroring
-// the iOS browser's nesting in a single non-navigating view.
 struct ResourcesView: View {
     @State private var selectedCore: CoreType = ConfigurationStore.shared.selectedCore
     @State private var nodes: [ResourceNode] = []
@@ -21,6 +16,8 @@ struct ResourcesView: View {
     @State private var importing = false
     @State private var importTarget: URL?
     @State private var errorMessage: String?
+    @State private var newFolderDir: URL?
+    @State private var folderNameInput = ""
 
     var body: some View {
         VStack(spacing: 0) {
@@ -111,6 +108,13 @@ struct ResourcesView: View {
         } message: { msg in
             Text(msg)
         }
+        .alert("New Folder", isPresented: newFolderBinding, presenting: newFolderDir) { dir in
+            TextField("Name", text: $folderNameInput)
+            Button("Save") { createFolder(in: dir) }
+            Button("Cancel", role: .cancel) {}
+        } message: { _ in
+            Text("Enter a name for the new folder.")
+        }
         .onAppear {
             selectedCore = ConfigurationStore.shared.selectedCore
             reload()
@@ -122,18 +126,14 @@ struct ResourcesView: View {
     }
 
     // MARK: - Targeting
-
-    /// Where Import / New Folder act: the selected folder (or a selected
-    /// file's parent) when exactly one row is selected, otherwise the
-    /// selected core's root.
+    
     private var targetDirectory: URL {
         let root = ResourcesStore.directory(for: selectedCore)
         guard selection.count == 1, let url = selection.first,
               let node = findNode(url, in: nodes) else { return root }
         return node.isDirectory ? node.entry.url : node.entry.url.deletingLastPathComponent()
     }
-
-    /// Human-readable form of `targetDirectory` relative to the core root.
+    
     private var targetLabel: String {
         let root = ResourcesStore.directory(for: selectedCore)
         let target = targetDirectory
@@ -166,6 +166,13 @@ struct ResourcesView: View {
         )
     }
 
+    private var newFolderBinding: Binding<Bool> {
+        Binding(
+            get: { newFolderDir != nil },
+            set: { if !$0 { newFolderDir = nil } }
+        )
+    }
+
     // MARK: - Tree
 
     private func reload() {
@@ -180,8 +187,6 @@ struct ResourcesView: View {
     private func buildNodes(at url: URL) throws -> [ResourceNode] {
         try ResourcesStore.list(at: url).map { entry in
             if entry.kind == .directory {
-                // Nested listing is best-effort: a single unreadable
-                // subfolder shouldn't blank the whole tree.
                 return ResourceNode(entry: entry, children: (try? buildNodes(at: entry.url)) ?? [])
             }
             return ResourceNode(entry: entry, children: nil)
@@ -215,18 +220,18 @@ struct ResourcesView: View {
     }
 
     private func promptNewFolder() {
-        let dir = targetDirectory
-        NameInputAlert.present(
-            title: String(localized: "New Folder"),
-            message: String(localized: "Enter a name for the new folder."),
-            placeholder: String(localized: "Name")
-        ) { name in
-            do {
-                try ResourcesStore.createFolder(named: name, in: dir)
-                reload()
-            } catch {
-                errorMessage = error.localizedDescription
-            }
+        folderNameInput = ""
+        newFolderDir = targetDirectory
+    }
+
+    private func createFolder(in dir: URL) {
+        let trimmed = folderNameInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        do {
+            try ResourcesStore.createFolder(named: trimmed, in: dir)
+            reload()
+        } catch {
+            errorMessage = error.localizedDescription
         }
     }
 
@@ -250,9 +255,6 @@ struct ResourcesView: View {
     }
 }
 
-// Outline node backing the hierarchical Table. Files carry `nil` children
-// (leaf); directories carry their listing (possibly empty) so they always
-// show a disclosure triangle.
 private struct ResourceNode: Identifiable {
     let entry: ResourceEntry
     var children: [ResourceNode]?

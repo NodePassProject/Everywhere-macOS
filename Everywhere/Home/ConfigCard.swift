@@ -10,6 +10,7 @@ import SwiftUI
 struct ConfigCard: View {
     @ObservedObject var config: Configuration
     let isActive: Bool
+    let isUpdating: Bool
     let action: () -> Void
     let onUpdate: () -> Void
     let onRename: () -> Void
@@ -32,6 +33,10 @@ struct ConfigCard: View {
                         .lineLimit(1)
                 }
                 Spacer(minLength: 0)
+                if isUpdating {
+                    ProgressView()
+                        .controlSize(.small)
+                }
                 Button {
                     openWindow(id: WindowID.configEditor.rawValue, value: config.id)
                 } label: {

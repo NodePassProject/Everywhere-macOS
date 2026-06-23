@@ -39,31 +39,34 @@ extension ContentView {
     }
 
     func promptCreate(for core: CoreType) {
-        NameInputAlert.present(
-            title: String(localized: "New \(core.displayName) configuration"),
-            message: String(localized: "Enter a name for the new configuration."),
-            placeholder: String(localized: "Name")
-        ) { name in
-            store.create(name: name, type: core, content: core.defaultConfig)
-        }
+        nameInput = ""
+        namePrompt = .create(core)
     }
 
     func promptRename(_ config: Configuration) {
-        NameInputAlert.present(
-            title: String(localized: "Rename configuration"),
-            initialValue: config.name
-        ) { name in
-            store.update(config, name: name)
-        }
+        nameInput = config.name
+        namePrompt = .rename(config)
     }
 
     func promptDownload(for core: CoreType) {
-        URLInputAlert.present(
-            title: String(localized: "Subscribe to \(core.displayName) configuration"),
-            message: String(localized: "Enter a subscription URL.")
-        ) { url in
-            download(from: url, for: core)
+        urlInput = ""
+        downloadCore = core
+    }
+    
+    func submitName(for prompt: NamePrompt) {
+        let trimmed = nameInput.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        switch prompt {
+        case .create(let core):
+            store.create(name: trimmed, type: core, content: core.defaultConfig)
+        case .rename(let config):
+            store.update(config, name: trimmed)
         }
+    }
+    
+    func submitDownload(for core: CoreType) {
+        guard let url = Self.parsedSubscriptionURL(urlInput) else { return }
+        download(from: url, for: core)
     }
 
     func handleFileImport(_ result: Result<[URL], Error>) {
@@ -101,9 +104,10 @@ extension ContentView {
     
     func updateSubscription(_ config: Configuration) {
         guard let raw = config.sourceURL, let url = URL(string: raw) else { return }
-        isDownloading = true
+        let id = config.id
+        updatingIDs.insert(id)
         Task {
-            defer { Task { @MainActor in isDownloading = false } }
+            defer { updatingIDs.remove(id) }
             do {
                 let content = try await fetchConfig(from: url)
                 store.update(config, content: content)
@@ -177,5 +181,54 @@ extension ContentView {
             get: { pendingDelete != nil },
             set: { if !$0 { pendingDelete = nil } }
         )
+    }
+
+    var namePromptBinding: Binding<Bool> {
+        Binding(
+            get: { namePrompt != nil },
+            set: { if !$0 { namePrompt = nil } }
+        )
+    }
+
+    var downloadPromptBinding: Binding<Bool> {
+        Binding(
+            get: { downloadCore != nil },
+            set: { if !$0 { downloadCore = nil } }
+        )
+    }
+    
+    static func parsedSubscriptionURL(_ raw: String) -> URL? {
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty,
+              let url = URL(string: trimmed),
+              let scheme = url.scheme?.lowercased(),
+              scheme == "http" || scheme == "https",
+              url.host?.isEmpty == false else {
+            return nil
+        }
+        return url
+    }
+}
+
+enum NamePrompt {
+    case create(CoreType)
+    case rename(Configuration)
+
+    var title: String {
+        switch self {
+        case .create(let core):
+            return String(localized: "New \(core.displayName) configuration")
+        case .rename:
+            return String(localized: "Rename configuration")
+        }
+    }
+
+    var message: String? {
+        switch self {
+        case .create:
+            return String(localized: "Enter a name for the new configuration.")
+        case .rename:
+            return nil
+        }
     }
 }
