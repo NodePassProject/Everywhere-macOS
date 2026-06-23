@@ -12,6 +12,7 @@ import UniformTypeIdentifiers
 struct ContentView: View {
     @ObservedObject var tunnel = TunnelManager.shared
     @ObservedObject var store = ConfigurationStore.shared
+    @ObservedObject var appState = AppState.shared
     @State var activationBlocked = false
     @State var fileImporting = false
     @State var isDownloading = false
@@ -20,7 +21,7 @@ struct ContentView: View {
     @State var importCore: CoreType?
 
     private var showDashboard: Bool {
-        tunnel.coreRunning && store.selectedCore != .xray
+        tunnel.coreRunning && store.selectedCore != .xray && appState.useZashboardEnabled
     }
 
     var body: some View {

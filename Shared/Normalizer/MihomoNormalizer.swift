@@ -66,7 +66,7 @@ enum MihomoNormalizer: CoreNormalizer {
 
     // mihomo's normalize never actually throws — it walks lines and can't
     // fail — but conforms to the throwing `CoreNormalizer` requirement.
-    static func normalize(_ content: String) throws -> String {
+    static func normalize(_ content: String, useZashboard: Bool) throws -> String {
         let normalized = content
             .replacingOccurrences(of: "\r\n", with: "\n")
             .replacingOccurrences(of: "\r", with: "\n")
@@ -79,7 +79,7 @@ enum MihomoNormalizer: CoreNormalizer {
         while i < lines.count {
             let line = lines[i]
 
-            if matchesStrippedTopLevelKey(line) {
+            if useZashboard && matchesStrippedTopLevelKey(line) {
                 i += 1
                 while i < lines.count {
                     if isColumnZeroContent(lines[i]) { break }
@@ -153,10 +153,12 @@ enum MihomoNormalizer: CoreNormalizer {
             output.append("log-level: \(logFloor)")
         }
 
-        if let last = output.last, !last.isEmpty {
-            output.append("")
+        if useZashboard {
+            if let last = output.last, !last.isEmpty {
+                output.append("")
+            }
+            output.append("external-controller: \(clashAPIAddress)")
         }
-        output.append("external-controller: \(clashAPIAddress)")
 
         return output.joined(separator: "\n")
     }

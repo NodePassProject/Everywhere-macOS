@@ -19,8 +19,8 @@ import Foundation
 enum SingBoxNormalizer: JSONCoreNormalizer {
     private static let logFloor = "warn"
     private static let logOrder = ["trace", "debug", "info", "warn", "error", "fatal", "panic"]
-
-    static func normalize(_ content: String) throws -> String {
+    
+    static func normalize(_ content: String, useZashboard: Bool) throws -> String {
         var root = try parseJSONObject(content)
         var inbounds = (root["inbounds"] as? [[String: Any]]) ?? []
         if let first = inbounds.firstIndex(where: { isTunInbound($0, typeKey: "type") }) {
@@ -72,9 +72,11 @@ enum SingBoxNormalizer: JSONCoreNormalizer {
         // controller by hitting this exact address; a user-supplied
         // secret or non-loopback bind would lock us out. Leave any
         // sibling `experimental.*` blocks (e.g. `cache_file`) alone.
-        var experimental = (root["experimental"] as? [String: Any]) ?? [:]
-        experimental["clash_api"] = ["external_controller": clashAPIAddress]
-        root["experimental"] = experimental
+        if useZashboard {
+            var experimental = (root["experimental"] as? [String: Any]) ?? [:]
+            experimental["clash_api"] = ["external_controller": clashAPIAddress]
+            root["experimental"] = experimental
+        }
 
         root["log"] = cappedLog(root["log"] as? [String: Any])
 

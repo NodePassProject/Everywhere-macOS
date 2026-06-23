@@ -8,17 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B93EA383549F0F75BC35BF80 /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = 34BEB8398CA45C4A20EC5AEC /* EverywhereCore */; };
+		CB106E9A2FEA8B35001F6D23 /* EverywhereNE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */ = {isa = PBXBuildFile; productRef = CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */; };
 		CBF1F7BF2FB3163E00D91BE7 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBF1F7BE2FB3163E00D91BE7 /* NetworkExtension.framework */; };
-		CBF1F7C72FB3163E00D91BE7 /* EverywhereNE.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CBF1F7BC2FB3163E00D91BE7 /* EverywhereNE.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D46E211EFE1A5B33A02A1FB8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB3DC7EF6593BF3DF279D76 /* libresolv.tbd */; };
 		F9357A5FBB147A31AFCA9C4C /* zashboard in Resources */ = {isa = PBXBuildFile; fileRef = B1092611A99F67CD51BC0432 /* zashboard */; };
-		FB4F74E34BCB09FD5F92C36D /* EverywhereCore in Frameworks */ = {isa = PBXBuildFile; productRef = B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CBF1F7C52FB3163E00D91BE7 /* PBXContainerItemProxy */ = {
+		CB106E9B2FEA8B35001F6D23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CBF1F7A22FB3161C00D91BE7 /* Project object */;
 			proxyType = 1;
@@ -28,13 +27,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CBF1F7CC2FB3163E00D91BE7 /* Embed Foundation Extensions */ = {
+		CB106E9D2FEA8B36001F6D23 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				CBF1F7C72FB3163E00D91BE7 /* EverywhereNE.appex in Embed Foundation Extensions */,
+				CB106E9A2FEA8B35001F6D23 /* EverywhereNE.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +96,6 @@
 			files = (
 				E0AF6A44647E41D5A1B31569 /* libresolv.tbd in Frameworks */,
 				CB1BEA6A2FB3404400CD736B /* CodeEditSourceEditor in Frameworks */,
-				FB4F74E34BCB09FD5F92C36D /* EverywhereCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,12 +152,12 @@
 				CBF1F7A62FB3161C00D91BE7 /* Sources */,
 				CBF1F7A72FB3161C00D91BE7 /* Frameworks */,
 				CBF1F7A82FB3161C00D91BE7 /* Resources */,
-				CBF1F7CC2FB3163E00D91BE7 /* Embed Foundation Extensions */,
+				CB106E9D2FEA8B36001F6D23 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CBF1F7C62FB3163E00D91BE7 /* PBXTargetDependency */,
+				CB106E9C2FEA8B35001F6D23 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				3BAA08BE3B06CD87400B3937 /* Shared */,
@@ -168,7 +166,6 @@
 			name = Everywhere;
 			packageProductDependencies = (
 				CB1BEA692FB3404400CD736B /* CodeEditSourceEditor */,
-				B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */,
 			);
 			productName = Everywhere;
 			productReference = CBF1F7AA2FB3161D00D91BE7 /* Everywhere.app */;
@@ -276,10 +273,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CBF1F7C62FB3163E00D91BE7 /* PBXTargetDependency */ = {
+		CB106E9C2FEA8B35001F6D23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CBF1F7BB2FB3163E00D91BE7 /* EverywhereNE */;
-			targetProxy = CBF1F7C52FB3163E00D91BE7 /* PBXContainerItemProxy */;
+			targetProxy = CB106E9B2FEA8B35001F6D23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,7 +409,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -439,7 +436,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -460,7 +457,7 @@
 				CODE_SIGN_ENTITLEMENTS = Everywhere/Everywhere.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -487,7 +484,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -505,7 +502,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -529,7 +526,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere.EverywhereNE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -546,7 +543,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = EverywhereNE/EverywhereNE.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = C7AS5D38Q8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -570,7 +567,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.argsment.Everywhere.EverywhereNE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -635,11 +632,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		34BEB8398CA45C4A20EC5AEC /* EverywhereCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */;
-			productName = EverywhereCore;
-		};
-		B9633A3ACB68B3AB05BDBF77 /* EverywhereCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9CB6780EADAC28B1365FAF7D /* XCRemoteSwiftPackageReference "EverywhereCore" */;
 			productName = EverywhereCore;

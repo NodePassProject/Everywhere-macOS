@@ -13,7 +13,7 @@ import Foundation
 // cap live in the protocol extension below so every core reaches them
 // unqualified; JSON-only helpers live on `JSONCoreNormalizer`.
 protocol CoreNormalizer {
-    static func normalize(_ content: String) throws -> String
+    static func normalize(_ content: String, useZashboard: Bool) throws -> String
 }
 
 enum NormalizeError: LocalizedError {

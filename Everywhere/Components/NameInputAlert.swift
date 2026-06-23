@@ -7,9 +7,6 @@
 
 import AppKit
 
-// macOS equivalent of the iOS UIAlertController-with-textfield pattern.
-// Uses NSAlert with an accessory NSTextField so callers can keep the
-// same imperative present/submit API as the iOS sibling.
 enum NameInputAlert {
     static func present(
         title: String,

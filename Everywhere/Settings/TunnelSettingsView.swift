@@ -14,12 +14,6 @@ struct TunnelSettingsView: View {
     var body: some View {
         Form {
             Section {
-                Toggle(isOn: $appState.alwaysOnEnabled) {
-                    Label("Always On", systemImage: "bolt")
-                }
-            }
-
-            Section {
                 Toggle("Include All Networks", isOn: $appState.tunnelIncludeAllNetworks)
             }
 
@@ -33,9 +27,6 @@ struct TunnelSettingsView: View {
         .formStyle(.grouped)
         .navigationTitle("Tunnel")
         .disabled(tunnel.pendingReconnect)
-        .onChange(of: appState.alwaysOnEnabled) { _, _ in
-            Task { await tunnel.reconnect() }
-        }
         .onChange(of: appState.tunnelIncludeAllNetworks) { _, _ in
             Task { await tunnel.reconnect() }
         }

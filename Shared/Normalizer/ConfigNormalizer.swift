@@ -42,11 +42,11 @@ import Foundation
 // (`XrayNormalizer`, `SingBoxNormalizer`, `MihomoNormalizer`); this
 // type is just the entry point that dispatches to the right one.
 enum ConfigNormalizer {
-    static func normalize(_ content: String, for core: CoreType) throws -> String {
+    static func normalize(_ content: String, for core: CoreType, useZashboard: Bool) throws -> String {
         switch core {
-        case .xray: return try XrayNormalizer.normalize(content)
-        case .singbox: return try SingBoxNormalizer.normalize(content)
-        case .mihomo: return try MihomoNormalizer.normalize(content)
+        case .xray: return try XrayNormalizer.normalize(content, useZashboard: useZashboard)
+        case .singbox: return try SingBoxNormalizer.normalize(content, useZashboard: useZashboard)
+        case .mihomo: return try MihomoNormalizer.normalize(content, useZashboard: useZashboard)
         }
     }
 }

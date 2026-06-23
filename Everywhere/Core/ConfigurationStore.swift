@@ -13,27 +13,18 @@ final class ConfigurationStore: ObservableObject {
     static let shared = ConfigurationStore()
 
     @Published private(set) var configurations: [Configuration] = []
-
-    /// The core the user is currently working with — drives which
-    /// page the `ContentView` pager opens on and which configurations
-    /// the right-hand column filters to.
+    
     @Published var selectedCore: CoreType {
         didSet { EVCore.setSelectedCore(selectedCore) }
     }
-
-    /// Each core type has its own "active" configuration so switching
-    /// the core picker doesn't lose the user's pick for the other
-    /// cores.
+    
     @Published private(set) var activeIDByCoreType: [CoreType: UUID] = [:]
-
-    /// The configuration that the tunnel will run with right now —
-    /// always the active one for the selected core.
+    
     var active: Configuration? {
         guard let id = activeIDByCoreType[selectedCore] else { return nil }
         return configurations.first { $0.id == id }
     }
-
-    /// Configurations filtered to the selected core.
+    
     var configurationsForSelectedCore: [Configuration] {
         configurations.filter { $0.coreType == selectedCore }
     }
@@ -60,7 +51,6 @@ final class ConfigurationStore: ObservableObject {
             NSSortDescriptor(keyPath: \Configuration.createdAt, ascending: true)
         ]
         configurations = (try? context.fetch(request)) ?? []
-        // Drop dangling active pointers (e.g. row deleted out of band).
         var changed = false
         for (core, id) in activeIDByCoreType {
             if !configurations.contains(where: { $0.id == id }) {
@@ -72,7 +62,7 @@ final class ConfigurationStore: ObservableObject {
     }
 
     @discardableResult
-    func create(name: String, type: CoreType, content: String) -> Configuration {
+    func create(name: String, type: CoreType, content: String, sourceURL: String? = nil) -> Configuration {
         let cfg = Configuration(context: context)
         cfg.id = UUID()
         cfg.name = name
@@ -80,6 +70,7 @@ final class ConfigurationStore: ObservableObject {
         cfg.content = content
         cfg.createdAt = Date()
         cfg.updatedAt = Date()
+        cfg.sourceURL = sourceURL
         save()
         reload()
         if activeIDByCoreType[type] == nil {

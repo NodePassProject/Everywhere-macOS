@@ -96,6 +96,7 @@ extension ContentView {
                             config: config,
                             isActive: store.activeIDByCoreType[core] == config.id,
                             action: { activate(config) },
+                            onUpdate: { updateSubscription(config) },
                             onRename: { promptRename(config) },
                             onDelete: { pendingDelete = config }
                         )

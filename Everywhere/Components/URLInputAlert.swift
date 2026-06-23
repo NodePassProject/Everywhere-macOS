@@ -7,8 +7,6 @@
 
 import AppKit
 
-// Mirrors NameInputAlert: NSAlert with a text field that only fires
-// onSubmit when the input is a valid http(s) URL.
 enum URLInputAlert {
     static func present(
         title: String,
@@ -20,7 +18,7 @@ enum URLInputAlert {
         alert.messageText = title
         if let message { alert.informativeText = message }
         alert.alertStyle = .informational
-        alert.addButton(withTitle: String(localized: "Download"))
+        alert.addButton(withTitle: String(localized: "Subscribe"))
         alert.addButton(withTitle: String(localized: "Cancel"))
 
         let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 320, height: 24))

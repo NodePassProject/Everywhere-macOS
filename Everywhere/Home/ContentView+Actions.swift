@@ -59,8 +59,8 @@ extension ContentView {
 
     func promptDownload(for core: CoreType) {
         URLInputAlert.present(
-            title: String(localized: "Download \(core.displayName) configuration"),
-            message: String(localized: "Enter a URL to download the configuration from.")
+            title: String(localized: "Subscribe to \(core.displayName) configuration"),
+            message: String(localized: "Enter a subscription URL.")
         ) { url in
             download(from: url, for: core)
         }
@@ -76,7 +76,7 @@ extension ContentView {
             defer { if scoped { url.stopAccessingSecurityScopedResource() } }
             do {
                 let content = try String(contentsOf: url, encoding: .utf8)
-                store.create(name: derivedName(from: url), type: core, content: content)
+                store.create(name: extractRemarks(from: content, fallbackUrl: url), type: core, content: content)
             } catch {
                 importErrorMessage = "Could not read \(url.lastPathComponent): \(error.localizedDescription)"
             }
@@ -90,26 +90,58 @@ extension ContentView {
         Task {
             defer { Task { @MainActor in isDownloading = false } }
             do {
-                let (data, response) = try await URLSession.shared.data(from: url)
-                if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
-                    throw NSError(
-                        domain: "EverywhereDownload",
-                        code: http.statusCode,
-                        userInfo: [NSLocalizedDescriptionKey: "Server returned HTTP \(http.statusCode)."]
-                    )
-                }
-                guard let content = String(data: data, encoding: .utf8) else {
-                    throw NSError(
-                        domain: "EverywhereDownload",
-                        code: -1,
-                        userInfo: [NSLocalizedDescriptionKey: "Response is not valid UTF-8 text."]
-                    )
-                }
-                store.create(name: derivedName(from: url), type: core, content: content)
+                let content = try await fetchConfig(from: url)
+                let name = extractRemarks(from: content, fallbackUrl: url)
+                store.create(name: name, type: core, content: content, sourceURL: url.absoluteString)
             } catch {
                 importErrorMessage = error.localizedDescription
             }
         }
+    }
+    
+    func updateSubscription(_ config: Configuration) {
+        guard let raw = config.sourceURL, let url = URL(string: raw) else { return }
+        isDownloading = true
+        Task {
+            defer { Task { @MainActor in isDownloading = false } }
+            do {
+                let content = try await fetchConfig(from: url)
+                store.update(config, content: content)
+            } catch {
+                importErrorMessage = error.localizedDescription
+            }
+        }
+    }
+    
+    func fetchConfig(from url: URL) async throws -> String {
+        var request = URLRequest(url: url)
+        request.setValue("Everywhere/1.0 Clash/1.11.0", forHTTPHeaderField: "User-Agent")
+        let (data, response) = try await URLSession.shared.data(for: request)
+        if let http = response as? HTTPURLResponse, !(200...299).contains(http.statusCode) {
+            throw NSError(
+                domain: "EverywhereDownload",
+                code: http.statusCode,
+                userInfo: [NSLocalizedDescriptionKey: "Server returned HTTP \(http.statusCode)."]
+            )
+        }
+        guard let content = String(data: data, encoding: .utf8) else {
+            throw NSError(
+                domain: "EverywhereDownload",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "Response is not valid UTF-8 text."]
+            )
+        }
+        return content
+    }
+    
+    func extractRemarks(from content: String, fallbackUrl: URL) -> String {
+        if let data = content.data(using: .utf8),
+           let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let remarks = json["remarks"] as? String,
+           !remarks.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return remarks.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return derivedName(from: fallbackUrl)
     }
 
     func derivedName(from url: URL) -> String {

@@ -36,7 +36,7 @@ final class PacketTunnelProvider: NEPacketTunnelProvider {
                 ])
             }
             let raw = try Self.fetchConfigContent(id: id)
-            configContent = try ConfigNormalizer.normalize(raw, for: coreType)
+            configContent = try ConfigNormalizer.normalize(raw, for: coreType, useZashboard: EVCore.getUseZashboard())
         } catch {
             completionHandler(error)
             return

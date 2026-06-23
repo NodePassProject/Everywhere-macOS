@@ -11,6 +11,7 @@ struct ConfigCard: View {
     @ObservedObject var config: Configuration
     let isActive: Bool
     let action: () -> Void
+    let onUpdate: () -> Void
     let onRename: () -> Void
     let onDelete: () -> Void
     @Environment(\.openWindow) private var openWindow
@@ -28,6 +29,7 @@ struct ConfigCard: View {
                     Text(metadata)
                         .font(.caption)
                         .foregroundStyle(.secondary)
+                        .lineLimit(1)
                 }
                 Spacer(minLength: 0)
                 Button {
@@ -52,6 +54,11 @@ struct ConfigCard: View {
         }
         .buttonStyle(.plain)
         .contextMenu {
+            if config.sourceURL != nil {
+                Button(action: onUpdate) {
+                    Label("Update", systemImage: "arrow.clockwise")
+                }
+            }
             Button(action: onRename) {
                 Label("Rename", systemImage: "pencil")
             }
@@ -66,6 +73,6 @@ struct ConfigCard: View {
             fromByteCount: Int64(config.content.utf8.count),
             countStyle: .file
         )
-        return "\(size)"
+        return "\(size) · \(config.sourceURL ?? String(localized: "Local"))"
     }
 }

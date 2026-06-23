@@ -15,6 +15,7 @@ private struct DNSServerDraft: Identifiable, Equatable {
 
 struct DNSSettingsView: View {
     @ObservedObject private var appState = AppState.shared
+    @ObservedObject private var tunnel = TunnelManager.shared
     @State private var serverDrafts: [DNSServerDraft] = []
     @State private var isEditing = false
 
@@ -86,11 +87,13 @@ struct DNSSettingsView: View {
         let servers = serverDrafts
             .map { $0.value.trimmingCharacters(in: .whitespacesAndNewlines) }
         appState.dnsServers = servers
+        Task { await tunnel.reconnect() }
     }
 
     private func reset() {
         appState.dnsServers = EVCore.defaultDNSServers
         loadInitial()
+        Task { await tunnel.reconnect() }
     }
 
     private func isValid(_ raw: String) -> Bool {

@@ -36,7 +36,7 @@ struct AddConfigurationCard: View {
                     Label("Import from file", systemImage: "doc")
                 }
                 Button(action: onDownload) {
-                    Label("Download from URL", systemImage: "arrow.down.circle")
+                    Label("Subscribe", systemImage: "link")
                 }
             } label: {
                 Label("Add Configuration", systemImage: "plus")
