@@ -624,8 +624,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NodePassProject/EverywhereCore";
 			requirement = {
-				kind = exactVersion;
-				version = 2026.05.18;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2026.05.18;
 			};
 		};
 		CB1BEA682FB3404400CD736B /* XCRemoteSwiftPackageReference "CodeEditSourceEditor" */ = {
