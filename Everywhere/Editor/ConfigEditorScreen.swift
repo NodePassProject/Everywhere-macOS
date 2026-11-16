@@ -11,6 +11,7 @@ struct ConfigEditorScreen: View {
     @ObservedObject var configuration: Configuration
     @ObservedObject private var store = ConfigurationStore.shared
     @State private var draft: String
+    @State private var revision = 0
 
     init(configuration: Configuration) {
         self._configuration = ObservedObject(wrappedValue: configuration)
@@ -19,14 +20,13 @@ struct ConfigEditorScreen: View {
 
     var body: some View {
         ConfigEditorView(text: draftBinding, language: configuration.coreType.configLanguage)
-            .id(configuration.id)
+            .id(revision)
             .navigationTitle(configuration.name.isEmpty ? "Configuration" : configuration.name)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
                         Button {
-                            draft = configuration.coreType.defaultConfig
-                            store.update(configuration, content: draft)
+                            store.update(configuration, content: configuration.coreType.defaultConfig)
                         } label: {
                             Label("Reset to default", systemImage: "arrow.counterclockwise")
                         }
@@ -34,6 +34,11 @@ struct ConfigEditorScreen: View {
                         Label("More", systemImage: "ellipsis")
                     }
                 }
+            }
+            .onChange(of: configuration.content) { _, content in
+                guard content != draft else { return }
+                draft = content
+                revision += 1
             }
     }
 
@@ -48,9 +53,6 @@ struct ConfigEditorScreen: View {
     }
 }
 
-// Standalone window that hosts `ConfigEditorScreen` for a configuration
-// looked up by UUID. Used as a `WindowGroup` payload so each
-// configuration can be edited in its own window.
 struct ConfigEditorWindow: View {
     @ObservedObject private var store = ConfigurationStore.shared
     let configurationID: UUID?

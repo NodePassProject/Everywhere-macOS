@@ -85,7 +85,6 @@ final class ConfigurationStore: ObservableObject {
         if let name { cfg.name = name }
         if let newType = type, newType != oldType {
             cfg.coreType = newType
-            // Re-balance the per-core active map across the move.
             if activeIDByCoreType[oldType] == cfg.id {
                 activeIDByCoreType[oldType] = configurations.first {
                     $0.coreType == oldType && $0.id != cfg.id
@@ -108,6 +107,7 @@ final class ConfigurationStore: ObservableObject {
         let wasActive = (activeIDByCoreType[type] == id)
         context.delete(cfg)
         save()
+        EVCore.removeXraySelections(configID: id)
         reload()
         if wasActive {
             activeIDByCoreType[type] = configurations.first { $0.coreType == type }?.id
@@ -154,6 +154,5 @@ final class ConfigurationStore: ObservableObject {
         create(name: "Xray", type: .xray, content: ExampleConfigs.xray)
         create(name: "sing-box", type: .singbox, content: ExampleConfigs.singbox)
         create(name: "mihomo", type: .mihomo, content: ExampleConfigs.mihomo)
-        // create() already populated activeIDByCoreType for each type.
     }
 }

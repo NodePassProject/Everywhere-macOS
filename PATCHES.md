@@ -6,17 +6,25 @@ upstream at
 [NodePassProject/EverywhereCore](https://github.com/NodePassProject/EverywhereCore) —
 see its README and `Scripts/build.sh` if you need to touch the Go side.
 
-## Pinned EverywhereCore version
+## EverywhereCore version range
 
-`Scripts/wire_project.rb` pins the SwiftPM dependency to a single tag:
+`Scripts/wire_project.rb` pins the SwiftPM dependency to a calver range
+rather than an exact tag:
 
 ```ruby
-EVERYWHERE_CORE_VERSION = '2026.05.14'
+EVERYWHERE_CORE_MIN_VERSION = '2026.11.15'
+EVERYWHERE_CORE_REQ = { 'kind' => 'upToNextMajorVersion', 'minimumVersion' => EVERYWHERE_CORE_MIN_VERSION }
 ```
 
-Bump that string and rerun `./build.sh` to roll forward. The upstream
-ships a daily-rolled `vYYYY.MM.DD` tag whenever Xray / sing-box / mihomo
-release; pick the latest tag that has had time to soak.
+`upToNextMajor` against a `vYYYY.MM.DD` tag accepts every release inside
+the same calendar year, so a fresh `xcodebuild -resolvePackageDependencies`
+rolls forward to the newest daily tag automatically. Bump the floor only
+when the upstream drops a tag with a breaking-change marker or when you
+want to abandon stale releases. Tracking `branch main` is **not** a viable
+alternative here: upstream's main-branch `Package.swift` references a
+local `EverywhereCore.xcframework` path that only exists during their dev
+work — `Scripts/release.sh` rewrites it to `binaryTarget(url:, checksum:)`
+on each tag, so only tagged releases are consumable downstream.
 
 ## Wiring requirements `Scripts/wire_project.rb` enforces
 
@@ -37,12 +45,39 @@ an Xcode UI edit reasserts them.
   Adding the product to a Copy Files phase by `productRef` double-
   resolves and fails with `No such file or directory` on the bare
   product name.
-- `ThirdParty/zashboard` registered as a folder reference (blue folder,
-  `lastKnownFileType = folder`) on the app target's Resources phase —
-  zashboard's `index.html` references its bundled assets via relative
-  paths (`./assets/index-*.js`), which only works if Xcode preserves
-  the directory layout on copy. The release build is checked into the
-  repo as a static bundle; there is no source build step.
+- No dashboard resource bundle. The dashboard used to be a prebuilt
+  zashboard checked into `ThirdParty/` and registered as a folder
+  reference on the app target; it is native SwiftUI now, and the wire
+  script removes that reference from projects wired before the change.
+
+## Dashboard ↔ core wiring
+
+The native dashboard (`Everywhere/Dashboard/`) talks to the running
+core in one of two ways, hidden behind `DashboardBackend`:
+
+- **mihomo, sing-box** — the clash API. While the dashboard is enabled
+  `ConfigNormalizer` forces the controller to `127.0.0.1:9090` and sets
+  a `secret`. Loopback is reachable by every app on the Mac, so the
+  controller is never left open: the Network Extension generates the
+  secret on first start and keeps it in the App Group defaults
+  (`EVCore.makeControllerSecret()`); the app only reads it.
+- **Xray-core** — no clash API. EverywhereCore's `Control(method,
+  params)` serves the dashboard in-process and the app reaches it with
+  `sendProviderMessage` (`{"type": "control", …}` in
+  `PacketTunnelProvider.handleAppMessage`). For traffic figures the
+  normalizer adds `stats: {}` and `policy.system.statsOutbound*`.
+  A balancer pick is an in-memory override in Xray, so it is stored per
+  configuration (`EVCore.setXraySelection`) and replayed by the
+  extension on the next start.
+
+`Control` exists from EverywhereCore `v2026.11.15`, which is why
+`EVERYWHERE_CORE_MIN_VERSION` is pinned there. To develop against a Go
+symbol no release has yet, wire a local checkout:
+
+```bash
+( cd ../EverywhereCore && Scripts/build.sh )
+EVERYWHERE_CORE_PATH=../EverywhereCore ./build.sh
+```
 
 ## NEPacketTunnelProvider on macOS
 

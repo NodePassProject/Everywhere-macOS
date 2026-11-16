@@ -15,8 +15,11 @@ final class AppState: ObservableObject {
         didSet { EVCore.setAlwaysOnEnabled(alwaysOnEnabled) }
     }
 
-    @Published var dnsServers: [String] {
-        didSet { EVCore.setDNSServers(dnsServers) }
+    @Published var tunnelNetworkSettings: TunnelNetworkSettings {
+        didSet {
+            EVCore.setTunnelNetworkSettings(tunnelNetworkSettings)
+            if tunnelNetworkSettings != oldValue { TunnelManager.shared.reconnectSoon() }
+        }
     }
 
     @Published var tunnelIncludeAllNetworks: Bool {
@@ -34,18 +37,18 @@ final class AppState: ObservableObject {
     @Published var tunnelIncludeCellularServices: Bool {
         didSet { EVCore.setTunnelIncludeCellularServices(tunnelIncludeCellularServices) }
     }
-
-    @Published var useZashboardEnabled: Bool {
-        didSet { EVCore.setUseZashboard(useZashboardEnabled) }
+    
+    @Published var dashboardEnabled: Bool {
+        didSet { EVCore.setDashboardEnabled(dashboardEnabled) }
     }
 
     private init() {
         self.alwaysOnEnabled = EVCore.getAlwaysOnEnabled()
-        self.dnsServers = EVCore.getDNSServers().isEmpty ? EVCore.defaultDNSServers : EVCore.getDNSServers()
+        self.tunnelNetworkSettings = EVCore.getTunnelNetworkSettings()
         self.tunnelIncludeAllNetworks = EVCore.getTunnelIncludeAllNetworks()
         self.tunnelIncludeLocalNetworks = EVCore.getTunnelIncludeLocalNetworks()
         self.tunnelIncludeAPNs = EVCore.getTunnelIncludeAPNs()
         self.tunnelIncludeCellularServices = EVCore.getTunnelIncludeCellularServices()
-        self.useZashboardEnabled = EVCore.getUseZashboard()
+        self.dashboardEnabled = EVCore.getDashboardEnabled()
     }
 }

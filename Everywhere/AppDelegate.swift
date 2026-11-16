@@ -15,9 +15,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var cancellables: Set<AnyCancellable> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        // The tunnel's status drives both the item's presence and its menu.
-        // `objectWillChange` fires just before a change, so hop to the next main
-        // run-loop pass to read the settled value.
         TunnelManager.shared.objectWillChange
             .receive(on: DispatchQueue.main)
             .sink { [weak self] in self?.refreshStatusItem() }
@@ -26,13 +23,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        // With the tunnel down there's nothing to keep alive in the menu bar,
-        // so closing the window quits the app.
         guard TunnelManager.shared.status.isActive else { return true }
-        // Tunnel is up: keep running in the menu bar (Dock icon hidden). Re-check
-        // shortly after — when "Open Everywhere" reopens the window the
-        // just-closed window can momentarily look like the last one. Only drop
-        // the Dock icon if no window remains.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let self else { return }
             let hasWindow = NSApp.windows.contains {
@@ -152,9 +143,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         bringWindowToFront()
     }
 
-    // The window may take a run-loop pass to come back, and returning from
-    // `.accessory` needs an explicit activation — so poll briefly for the
-    // window, then force the app and window forward.
     private func bringWindowToFront() {
         if let window = NSApp.windows.first(where: { $0.styleMask.contains(.titled) }) {
             NSApp.activate(ignoringOtherApps: true)

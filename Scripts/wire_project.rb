@@ -1,22 +1,17 @@
 #!/usr/bin/env ruby
-# Wires the EverywhereCore SwiftPM package + zashboard resource bundle
-# into Everywhere.xcodeproj (macOS). Idempotent — running it twice is safe.
-#
-# EverywhereCore ships as a prebuilt xcframework on GitHub Releases; SwiftPM
-# downloads and verifies it. The app target embeds it; the network extension
-# target links against it and loads at runtime from the app bundle.
+# Wires SwiftPM packages and build settings into Everywhere.xcodeproj. Idempotent.
 
 require 'xcodeproj'
 
-PROJECT_PATH = File.expand_path('../Everywhere.xcodeproj', __dir__)
-DASHBOARD_REL_PATH = 'ThirdParty/zashboard'
-DASHBOARD_NAME = 'zashboard'
-DEPLOYMENT_TARGET = '14.0'
-SHARED_FOLDER = 'Shared'
+PROJECT_PATH       = File.expand_path('../Everywhere.xcodeproj', __dir__)
+DEPLOYMENT_TARGET  = '14.0'
+SHARED_FOLDER      = 'Shared'
 
-EVERYWHERE_CORE_REPO    = 'https://github.com/NodePassProject/EverywhereCore'
-EVERYWHERE_CORE_VERSION = '2026.05.18'
-EVERYWHERE_CORE_PRODUCT = 'EverywhereCore'
+EVERYWHERE_CORE_REPO        = 'https://github.com/NodePassProject/EverywhereCore'
+EVERYWHERE_CORE_MIN_VERSION = '2026.11.15'
+EVERYWHERE_CORE_REQ         = { 'kind' => 'upToNextMajorVersion', 'minimumVersion' => EVERYWHERE_CORE_MIN_VERSION }
+EVERYWHERE_CORE_PRODUCT     = 'EverywhereCore'
+EVERYWHERE_CORE_LOCAL_PATH  = ENV['EVERYWHERE_CORE_PATH'].to_s.strip
 
 project = Xcodeproj::Project.open(PROJECT_PATH)
 
@@ -24,7 +19,6 @@ app_target = project.targets.find { |t| t.name == 'Everywhere' } or abort 'Every
 ne_target  = project.targets.find { |t| t.name == 'EverywhereNE' } or abort 'EverywhereNE target missing'
 
 # --- Tear down any prior local-xcframework wiring -------------------------
-# Self-healing for repos previously wired against Frameworks/EverywhereCore.xcframework.
 stale_xcfw = project.files.select { |f| f.path == 'Frameworks/EverywhereCore.xcframework' }
 stale_xcfw.each do |ref|
   project.targets.each do |t|
@@ -40,8 +34,6 @@ stale_xcfw.each do |ref|
   ref.remove_from_project
 end
 
-# Strip $(PROJECT_DIR)/Frameworks from FRAMEWORK_SEARCH_PATHS now that
-# SwiftPM owns the binary — leaving it is harmless but noisy.
 stale_search_path = '$(PROJECT_DIR)/Frameworks'
 [app_target, ne_target].each do |target|
   target.build_configurations.each do |config|
@@ -56,18 +48,20 @@ stale_search_path = '$(PROJECT_DIR)/Frameworks'
   end
 end
 
-# --- Remote SwiftPM package reference ------------------------------------
-pkg_ref = project.root_object.package_references.find do |pr|
-  pr.respond_to?(:repositoryURL) && pr.repositoryURL == EVERYWHERE_CORE_REPO
+# --- SwiftPM helpers ------------------------------------------------------
+def ensure_swift_package(project, url, requirement)
+  pkg = project.root_object.package_references.find do |p|
+    p.respond_to?(:repositoryURL) && p.repositoryURL == url
+  end
+  unless pkg
+    pkg = project.new(Xcodeproj::Project::Object::XCRemoteSwiftPackageReference)
+    pkg.repositoryURL = url
+    project.root_object.package_references << pkg
+  end
+  pkg.requirement = requirement
+  pkg
 end
-unless pkg_ref
-  pkg_ref = project.new(Xcodeproj::Project::Object::XCRemoteSwiftPackageReference)
-  pkg_ref.repositoryURL = EVERYWHERE_CORE_REPO
-  project.root_object.package_references << pkg_ref
-end
-pkg_ref.requirement = { 'kind' => 'exactVersion', 'version' => EVERYWHERE_CORE_VERSION }
 
-# --- Per-target product dependency + link --------------------------------
 def add_product_dep(target, project, package_ref, product_name)
   dep = target.package_product_dependencies.find do |d|
     d.product_name == product_name && d.package == package_ref
@@ -89,17 +83,78 @@ def link_product(target, project, dep)
   phase.files << bf
 end
 
-app_dep = add_product_dep(app_target, project, pkg_ref, EVERYWHERE_CORE_PRODUCT)
-ne_dep  = add_product_dep(ne_target,  project, pkg_ref, EVERYWHERE_CORE_PRODUCT)
-link_product(app_target, project, app_dep)
-link_product(ne_target,  project, ne_dep)
+def remove_swift_package(project, url)
+  pkg = project.objects.find do |o|
+    o.isa == 'XCRemoteSwiftPackageReference' && o.repositoryURL == url
+  end
+  return unless pkg
 
-# No manual Embed Frameworks entry: Xcode auto-embeds the framework slice
-# from a SwiftPM binary target into the app bundle when the product is in
-# the Frameworks build phase. Adding it to a Copy Files phase by productRef
-# double-resolves and fails with "No such file or directory" on the bare
-# product name. The network extension links the same product but is not
-# embedded — it loads from the host app's Frameworks/ at runtime.
+  project.objects.select do |o|
+    o.isa == 'XCSwiftPackageProductDependency' && o.package == pkg
+  end.each do |dep|
+    project.targets.each do |target|
+      target.frameworks_build_phase.files.select { |bf| bf.product_ref == dep }.each do |bf|
+        target.frameworks_build_phase.files.delete(bf)
+      end
+      target.package_product_dependencies.delete(dep)
+    end
+    dep.remove_from_project
+  end
+
+  project.root_object.package_references.delete(pkg)
+  pkg.remove_from_project
+end
+
+def ensure_local_swift_package(project, relative_path)
+  pkg = project.root_object.package_references.find do |p|
+    p.isa == 'XCLocalSwiftPackageReference' && p.relative_path == relative_path
+  end
+  unless pkg
+    pkg = project.new(Xcodeproj::Project::Object::XCLocalSwiftPackageReference)
+    pkg.relative_path = relative_path
+    project.root_object.package_references << pkg
+  end
+  pkg
+end
+
+def remove_local_swift_packages(project, product_name)
+  project.objects.select { |o| o.isa == 'XCLocalSwiftPackageReference' }.each do |pkg|
+    deps = project.objects.select do |o|
+      o.isa == 'XCSwiftPackageProductDependency' && o.package == pkg
+    end
+    next unless deps.any? { |d| d.product_name == product_name }
+    deps.each do |dep|
+      project.targets.each do |target|
+        target.frameworks_build_phase.files.select { |bf| bf.product_ref == dep }.each do |bf|
+          target.frameworks_build_phase.files.delete(bf)
+        end
+        target.package_product_dependencies.delete(dep)
+      end
+      dep.remove_from_project
+    end
+    project.root_object.package_references.delete(pkg)
+    pkg.remove_from_project
+  end
+end
+
+# --- EverywhereCore (both targets) ---------------------------------------
+if EVERYWHERE_CORE_LOCAL_PATH.empty?
+  remove_local_swift_packages(project, EVERYWHERE_CORE_PRODUCT)
+  core_pkg = ensure_swift_package(project, EVERYWHERE_CORE_REPO, EVERYWHERE_CORE_REQ)
+else
+  local_xcframework = File.expand_path(
+    File.join('..', EVERYWHERE_CORE_LOCAL_PATH, 'EverywhereCore.xcframework'), __dir__
+  )
+  File.directory?(local_xcframework) or
+    abort "#{local_xcframework} is missing — run Scripts/build.sh in the EverywhereCore checkout first"
+  remove_swift_package(project, EVERYWHERE_CORE_REPO)
+  core_pkg = ensure_local_swift_package(project, EVERYWHERE_CORE_LOCAL_PATH)
+end
+core_app_dep = add_product_dep(app_target, project, core_pkg, EVERYWHERE_CORE_PRODUCT)
+core_ne_dep  = add_product_dep(ne_target,  project, core_pkg, EVERYWHERE_CORE_PRODUCT)
+link_product(app_target, project, core_app_dep)
+link_product(ne_target,  project, core_ne_dep)
+
 stale_embed = app_target.copy_files_build_phases.find do |p|
   p.symbol_dst_subfolder_spec == :frameworks
 end
@@ -143,17 +198,9 @@ end
   end
 end
 
-# --- zashboard folder reference (bundled into the app target) -----------
-# `lastKnownFileType = folder` is the magic that makes Xcode treat this
-# as a "blue folder" — it copies the whole tree into the .app preserving
-# relative paths, which the dashboard's index.html requires
-# (./assets/index-*.js). Self-healing cleanup catches the legacy
-# yacd-gh-pages reference and any moved zashboard ref.
+# --- Retired dashboard bundles -------------------------------------------
 project.files.select { |f|
-  next false unless f.path
-  basename = File.basename(f.path)
-  (basename == 'yacd-gh-pages' || basename == DASHBOARD_NAME) &&
-    f.path != DASHBOARD_REL_PATH
+  f.path && %w[zashboard yacd-gh-pages].include?(File.basename(f.path))
 }.each do |stale|
   project.targets.each do |t|
     t.resources_build_phase.files.select { |bf| bf.file_ref == stale }.each do |bf|
@@ -163,26 +210,7 @@ project.files.select { |f|
   stale.remove_from_project
 end
 
-dashboard_ref = project.main_group.files.find { |f| f.path == DASHBOARD_REL_PATH }
-unless dashboard_ref
-  dashboard_ref = project.new(Xcodeproj::Project::Object::PBXFileReference)
-  dashboard_ref.path = DASHBOARD_REL_PATH
-  dashboard_ref.name = DASHBOARD_NAME
-  dashboard_ref.source_tree = 'SOURCE_ROOT'
-  dashboard_ref.last_known_file_type = 'folder'
-  project.main_group << dashboard_ref
-end
-unless app_target.resources_build_phase.files.any? { |bf| bf.file_ref == dashboard_ref }
-  app_target.resources_build_phase.add_file_reference(dashboard_ref)
-end
-
 # --- Shared/ synced root group (both targets compile its sources) --------
-# Sources that both the host app and the Network Extension need —
-# Core Data stack, EVCore helper, ConfigNormalizer, etc. — live in
-# Shared/. The folder is registered as a PBXFileSystemSynchronizedRootGroup
-# on both targets so every .swift inside auto-joins each target's
-# Sources build phase. This is the canonical Xcode-16 way to share
-# sources across targets without per-file membership exceptions.
 shared_group = project.main_group.children.find do |c|
   c.is_a?(Xcodeproj::Project::Object::PBXFileSystemSynchronizedRootGroup) && c.path == SHARED_FOLDER
 end
@@ -199,4 +227,5 @@ end
 end
 
 project.save
-puts "Wired EverywhereCore @ #{EVERYWHERE_CORE_VERSION} (SwiftPM) + zashboard + Shared/ into #{PROJECT_PATH}"
+core_source = EVERYWHERE_CORE_LOCAL_PATH.empty? ? ">= #{EVERYWHERE_CORE_MIN_VERSION}, SwiftPM" : "local, #{EVERYWHERE_CORE_LOCAL_PATH}"
+puts "Wired EverywhereCore (#{core_source}) into #{PROJECT_PATH}"

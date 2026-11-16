@@ -25,8 +25,8 @@ struct ContentView: View {
     @State var downloadCore: CoreType?
     @State var urlInput = ""
     
-    private var showDashboard: Bool {
-        tunnel.coreRunning && store.selectedCore != .xray && appState.useZashboardEnabled
+    private var showsDashboard: Bool {
+        tunnel.coreRunning && appState.dashboardEnabled
     }
     
     var body: some View {
@@ -118,8 +118,10 @@ struct ContentView: View {
     
     @ViewBuilder
     private var mainContent: some View {
-        if showDashboard {
-            DashboardView()
+        if showsDashboard {
+            DashboardView(core: store.selectedCore, configID: store.active?.id) {
+                corePager
+            }
         } else {
             corePager
         }

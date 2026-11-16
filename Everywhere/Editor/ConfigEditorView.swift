@@ -42,6 +42,7 @@ struct ConfigEditorView: View {
         switch language {
         case "json": return .json
         case "yaml": return .yaml
+        case "javascript": return .javascript
         default: return .default
         }
     }

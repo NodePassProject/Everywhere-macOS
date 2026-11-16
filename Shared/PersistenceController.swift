@@ -17,10 +17,6 @@ final class PersistenceController {
         let model = Self.makeModel()
         container = NSPersistentContainer(name: "Everywhere", managedObjectModel: model)
 
-        // The store lives inside the App Group container so the
-        // Network Extension can open the same SQLite and read the
-        // active config directly. Without this the NE would need
-        // the config blob shipped through providerConfiguration.
         let storeURL = EVCore.containerURL.appendingPathComponent("Everywhere.sqlite")
         Self.migrateLegacyStoreIfNeeded(to: storeURL, model: model)
         container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: storeURL)]
@@ -33,12 +29,6 @@ final class PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
 
-    // Earlier builds wrote the SQLite to NSPersistentContainer's default
-    // directory inside the app sandbox. The NE can't reach that path, so
-    // the store now lives in the App Group container — which would
-    // silently leave every existing user looking at an empty database.
-    // Copy the legacy file over on first launch. If a prior launch
-    // already created an empty store at the new path, replace it.
     private static func migrateLegacyStoreIfNeeded(to newURL: URL, model: NSManagedObjectModel) {
         let fm = FileManager.default
         let legacyURL = NSPersistentContainer.defaultDirectoryURL()

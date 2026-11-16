@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-# Top-level: wire the Xcode project. The zashboard dashboard is checked
-# into ThirdParty/zashboard/ as a prebuilt static bundle, and the Go
-# cores ship as a prebuilt xcframework via the EverywhereCore SwiftPM
-# package — so there is no local source build step.
-#
-# Pass `--build-app` as a final step to also run `xcodebuild` for macOS
-# as a smoke test.
+# Wires the Xcode project; pass --build-app for a macOS smoke build.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
+
+ruby -e "require 'xcodeproj'" 2>/dev/null || gem install --user-install xcodeproj
 
 ruby Scripts/wire_project.rb
 
@@ -20,6 +16,7 @@ if [[ "${1:-}" == "--build-app" ]]; then
     -scheme Everywhere \
     -destination 'generic/platform=macOS' \
     -configuration Debug \
+    -skipPackagePluginValidation \
     CODE_SIGNING_ALLOWED=NO \
     build
 fi
